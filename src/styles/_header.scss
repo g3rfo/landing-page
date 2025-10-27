@@ -1,0 +1,39 @@
+$header-title-margin-mobile: 40px;
+$header-title-margin-tablets: 56px;
+
+.header {
+  &__container {
+    // header paddings
+    @include inlineContentPaddings;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  // header visual
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/Image-Header-background.jpg');
+  background-size: cover;
+  background-position: center;
+
+  // header title
+  &__title {
+    margin-bottom: $header-title-margin-mobile;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $header-title-color;
+
+    @include onTablets {
+      margin-bottom: $header-title-margin-tablets;
+      font-size: 48px;
+    }
+
+    @include onDesctops {
+      font-size: 56px;
+    }
+  }
+}

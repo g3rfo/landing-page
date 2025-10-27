@@ -1,0 +1,6 @@
+.main {
+  // main paddings
+  .container {
+    @include inlineContentPaddings;
+  }
+}

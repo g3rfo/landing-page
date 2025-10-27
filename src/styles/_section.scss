@@ -1,0 +1,242 @@
+$product-button-height: 56px;
+
+.section {
+  @include makeGrid;
+
+  &--contact-us {
+    @include onDesctops {
+      grid-template-columns: repeat(6, 63px);
+    }
+  }
+  &__content {
+    width: 100vw;
+    grid-column: 1 / 3;
+    margin-left: calc((100vw - 280px) / -2);
+    padding-block: 48px;
+
+    @include onTablets {
+      grid-column: 1 / 7;
+      margin-left: calc((100vw - 600px) / -2);
+      padding-block: 120px;
+    }
+
+    @include onDesctops {
+      grid-column: 1 / 13;
+      margin-left: calc((100vw - 1020px) / -2);
+    }
+
+    @include makeGrid;
+
+    justify-content: center;
+    background: $section-about-us-bg-color;
+  }
+
+  &__product {
+    padding-top: 40px;
+    @include onTablets {
+      padding-top: 56px;
+    }
+  }
+
+  @include onTablets {
+    &__product {
+      padding-top: 56px;
+    }
+  }
+
+  &__title {
+    margin-block: 64px 8px;
+    &--categories {
+      margin-top: 96px;
+    }
+    &--about-us {
+      margin-top: 0;
+    }
+    &--contact-us {
+      margin-bottom: 48px;
+    }
+    grid-column: 1 / 3;
+
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    color: $text-color;
+
+    @include onTablets {
+      margin-block: 120px 0;
+      grid-column: 1 / 6;
+
+      &--about-us {
+        margin: 0;
+        grid-column: 1 / 4;
+      }
+
+      &--contact-us {
+        margin-bottom: 56px;
+      }
+
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    @include onDesctops {
+      grid-column: 1 / 7;
+
+      font-size: 48px;
+      line-height: 48px;
+    }
+  }
+
+  &__button-wrap {
+    margin-top: 40px;
+    padding-top: 0;
+    grid-column: 1 / 3;
+
+    width: 100%;
+    height: $product-button-height;
+
+    @include onTablets {
+      margin-top: 56px;
+      grid-column: 1 / 7;
+    }
+
+    @include onDesctops {
+      &--categories {
+        grid-column: 1 / 5;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    background: $section-button-color;
+    color: #ffffff;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+
+    &:hover {
+      background: $section-button-color-hover;
+    }
+
+    &:active {
+      background: $section-button-color-focus;
+    }
+  }
+
+  &__bg-img {
+    grid-column: 1 / 3;
+    margin-top: 96px;
+    margin-left: calc((100vw - 280px) / -2);
+    width: 100vw;
+    height: 200px;
+
+    @include onTablets {
+      grid-column: 1 / 7;
+      margin-top: 120px;
+      margin-left: calc((100vw - 600px) / -2);
+      height: 400px;
+    }
+
+    @include onDesctops {
+      margin-left: calc((100vw - 1020px) / -2);
+      height: 460px;
+    }
+
+    background-image: url(../images/Image-About-us-bg.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__description {
+    grid-column: 1 / 3;
+
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.15px;
+
+    @include onTablets {
+      grid-column: 4 / 7;
+    }
+
+    @include onDesctops {
+      grid-column: 8 / 13;
+    }
+  }
+
+  &__input-wrap {
+    margin-top: 0;
+    &--email {
+      margin-top: 16px;
+    }
+    &--message {
+      margin-top: 16px;
+    }
+
+    grid-column: 1 / 3;
+    height: 48px;
+    &--message {
+      height: 148px;
+    }
+    @include onTablets {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    padding-inline: 16px;
+    &--message {
+      resize: none;
+      padding-block: 14px;
+      font-family: 'Manrope', sans-serif;
+    }
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0.15px;
+    background: $section-input-color;
+    border: none;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: $section-input-placeholder-color;
+    }
+
+    &:hover {
+      border: $section-input-hover-border-color 1px solid;
+      padding-inline: 15px;
+      &::placeholder {
+        color: $text-color;
+      }
+    }
+
+    &--message {
+      &:hover {
+        padding-block: 13px;
+      }
+    }
+
+    &:focus {
+      padding-inline: 14px;
+      border: $section-input-focus-border-color 2px solid;
+      &::placeholder {
+        color: $text-color;
+      }
+    }
+
+    &--message {
+      &:focus {
+        padding-block: 12px;
+      }
+    }
+  }
+}

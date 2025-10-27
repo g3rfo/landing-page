@@ -1,0 +1,92 @@
+$logo-width: 152px;
+$logo-height: 16px;
+
+$icon-size-mobile: 24px;
+$icon-size-desktop: 32px;
+$top-bar-height-mobile: 72px;
+$top-bar-height-desktop: 96px;
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: $top-bar-height-mobile;
+  @include onTablets {
+    height: $top-bar-height-desktop;
+  }
+
+  &__logo-img {
+    display: block;
+    width: $logo-width;
+    height: $logo-height;
+
+    @include onTablets {
+      width: calc($logo-width * 1.5);
+      height: calc($logo-height * 1.5);
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    @include onTablets {
+      gap: 32px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    background-size: cover;
+    width: $icon-size-mobile;
+    height: $icon-size-mobile;
+
+    @include onTablets {
+      width: $icon-size-desktop;
+      height: $icon-size-desktop;
+    }
+
+    &--phone {
+      position: relative;
+      background-image: url(../images/icons/Icon-Phone-call.svg);
+
+      @include onDesctops {
+        &::before {
+          content: '+1 234 5555-55-55';
+          position: absolute;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          width: 140px;
+          top: 8px;
+          left: -148px;
+
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: 2px;
+          text-align: right;
+          color: $text-color;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &--burger-menu {
+      background-image: url(../images/icons/Icon-Burger-menu.svg);
+
+      @include onDesctops {
+        &:hover {
+          background-image: url(../images/icons/Icon-Burger-menu-hover.svg);
+        }
+      }
+    }
+
+    &--close {
+      background-image: url(../images/icons/Icon-Close.svg);
+    }
+  }
+}

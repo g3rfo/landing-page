@@ -1,0 +1,53 @@
+$nav-margin-mobile: 32px;
+$nav-margin-tablets: 56px;
+
+.aside {
+  // aside paddings
+  .container {
+    @include inlineContentPaddings;
+  }
+
+  // aside settings
+  opacity: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  // aside visual
+  height: 100vh;
+  background-color: $bg-color;
+
+  // aside navigation
+  &__nav {
+    margin-top: $nav-margin-mobile;
+    @include onTablets {
+      margin-top: $nav-margin-tablets;
+    }
+  }
+
+  &__contacts {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__link {
+    width: fit-content;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 2px;
+    color: $text-color;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &--call {
+      padding-bottom: 3px;
+      border-bottom: $text-color 1px solid;
+    }
+  }
+}

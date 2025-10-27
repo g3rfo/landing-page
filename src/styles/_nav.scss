@@ -1,0 +1,41 @@
+$nav-gap: 32px;
+
+.nav {
+  // navigation list
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $nav-gap;
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    width: fit-content;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 100%;
+    color: $text-color;
+    text-decoration: none;
+
+    @include onDesctops {
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 0;
+        height: 1px;
+
+        background-color: $text-color;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
